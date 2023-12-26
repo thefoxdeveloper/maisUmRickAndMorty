@@ -33,7 +33,7 @@
   display: flex;
   width: 100%;
   background-color: var(--yellow-green);
-  height: 70%;
+  height: 60%;
   align-items: center;
   justify-content: center;
 }
@@ -72,7 +72,7 @@
   height: 90%;
   margin-right: 10px;
 }
-.content {
+#content {
   width: 70%;
   display: block;
   height: 99%;
@@ -87,6 +87,7 @@
 }
 .avatar img {
   height: 100%;
+  border-radius: 50%;
 }
 .info {
   height: 47.8%;
@@ -98,7 +99,7 @@
 .title h1 {
   text-align: center;
   color: #2f0d5e;
-  font-size: 98px;
+  font-size: 88px;
 }
 .stats h4 {
   color: #2f0d5e;
@@ -113,4 +114,9 @@
   align-items: center;
   margin-top: 4%;
   font-size: 48px;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 10px;
 }
