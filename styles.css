@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;900&family=Roboto:wght@400;900&display=swap");
+
+* {
+  --yellow-green: #85c939ff;
+  --cadet-gray: #8bb0b7ff;
+  --pear: #c9dc45ff;
+  --chestnut: #894e40ff;
+  --buff: #d09981ff;
+  margin: 0;
+  padding: 0;
+  background-color: var(--yellow-green);
+
+  font-family: "Roboto Slab", serif;
+}
+.container {
+  display: flex;
+  height: 100%;
+}
+.menu {
+  width: 30%;
+}
+.logo {
+  display: flex;
+  height: 30%;
+  align-items: right;
+  justify-content: center;
+}
+.logo img {
+  margin-top: 30%;
+  height: 100%;
+}
+.search {
+  display: flex;
+  width: 100%;
+  background-color: var(--yellow-green);
+  height: 70%;
+  align-items: center;
+  justify-content: center;
+}
+.busca {
+  display: flex;
+  border: 2px solid #2f0d5e;
+  background-color: var(--pear);
+  border-radius: 20px;
+  width: 80%;
+  height: 10%;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: -10%;
+}
+.busca:focus {
+  border: 2px solid white;
+}
+.busca input {
+  background-color: var(--pear);
+  text-align: left;
+  border: none;
+  margin-left: 10px;
+  height: 95%;
+  color: #2f0d5e;
+  width: 100%;
+  font-size: 2.5rem;
+}
+.busca input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+.busca img {
+  background-color: var(--pear);
+  height: 90%;
+  margin-right: 10px;
+}
+.content {
+  width: 70%;
+  display: block;
+  height: 99%;
+  border: 2px white solid;
+}
+.avatar {
+  display: flex;
+  margin-top: 20px;
+  height: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.avatar img {
+  height: 100%;
+}
+.info {
+  height: 47.8%;
+  text-align: center;
+  width: 100%;
+  font-size: 24px;
+}
+
+.title h1 {
+  text-align: center;
+  color: #2f0d5e;
+  font-size: 98px;
+}
+.stats h4 {
+  color: #2f0d5e;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4%;
+  font-size: 48px;
+}
