@@ -115,6 +115,14 @@
   margin-top: 4%;
   font-size: 48px;
 }
+button {
+  margin: 5px;
+  font-size: 38px;
+  padding: 2px;
+}
+button:hover {
+  background-color: var(--pear);
+}
 .total {
   display: flex;
   justify-content: space-between;

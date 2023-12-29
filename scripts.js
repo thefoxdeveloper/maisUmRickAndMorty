@@ -73,7 +73,7 @@ async function montarCard() {
   </div>
   <div class="info">
   <div class="title"><h1>${cards[pagina - 1].name}</h1></div>
-  <div class="stats"><h4>💚 ${cards[pagina - 1].status} - ${
+  <div class="stats"><h4> ${status(cards, pagina)} - ${
       cards[pagina - 1].species
     }</h4></div>
   <div class="location">
@@ -96,6 +96,16 @@ function devoRender(pagina, cards) {
     return bothAble(pagina);
   } else {
     return nextDisable(pagina);
+  }
+}
+function status(cards, pagina) {
+  if (cards[pagina - 1].status == "Alive") {
+    return `<h4>💚 Vivo`;
+  }
+  if (cards[pagina - 1].status == "Dead") {
+    return `<h4>❤️ Morto`;
+  } else {
+    return `<h4>🩶 Desconhecido`;
   }
 }
 function nextDisable(pagina) {
