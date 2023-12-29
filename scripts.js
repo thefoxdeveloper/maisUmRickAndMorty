@@ -92,7 +92,7 @@ async function montarCard() {
 function devoRender(pagina, cards) {
   if (pagina == 1 && currentpage == 1) {
     return beforeDisable(pagina);
-  } else if (cards[pagina]) {
+  } else if (cards[pagina] || pagina == 20) {
     return bothAble(pagina);
   } else {
     return nextDisable(pagina);
