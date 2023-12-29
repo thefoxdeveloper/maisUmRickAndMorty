@@ -26,7 +26,6 @@ async function getEpisode(number) {
   return res.episodes.name;
 }
 
-console.log(getEpisode(51));
 async function getDataCount(data) {
   const res = await apiDataLoad(2);
   return res[data].info.count;
@@ -47,34 +46,56 @@ async function apiDataLoadCards(name, currentpage) {
   );
   return characters.data.results;
 }
+let pagina = 1;
+
 async function montarCard(name) {
   const cards = await apiDataLoadCards(name, currentpage);
-  for (const x of cards) {
-    const episodeName = await getEpisode(x.episode.length);
-    content.innerHTML += `<div class="avatar">
+
+  const episodeName = await getEpisode(cards[pagina - 1].episode.length);
+  content.innerHTML = `<div class="avatar">
 <img
-  src="${x.image}"
+  src="${cards[pagina - 1].image}"
   alt=""
 />
 </div>
 <div class="info">
-<div class="title"><h1>${x.name}</h1></div>
-<div class="stats"><h4>💚 ${x.status} - ${x.species}</h4></div>
+<div class="title"><h1>${cards[pagina - 1].name}</h1></div>
+<div class="stats"><h4>💚 ${cards[pagina - 1].status} - ${
+    cards[pagina - 1].species
+  }</h4></div>
 <div class="location">
   <strong>Última localização conhecida:<br /></strong>
-  <span id="lastLoc">${x.location.name}</span>
+  <span id="lastLoc">${cards[pagina - 1].location.name}</span>
 </div>
 <div class="episode">
   <strong>Visto a última vez em:<br /></strong>
   <span id="lastEp">${episodeName}</span>
 </div>
 <div class="pagination">
-  <div class="prev"><-</div>
-  <div class="current">1</div>
-  <div class="next">-></div>
+  <div class="prev"><button onclick="prevPage()" id="prev">Anterior</button></div>
+  <div class="current"> ${pagina} </div>
+  <div class="next">  <button onclick="proxPage()">Proximo</button></div>
 </div>
 </div>
 </div>`;
-  }
 }
 montarCard("");
+function proxPage() {
+  pagina++;
+  montarCard("");
+  if (pagina > 20) {
+    currentpage++;
+    pagina = 1;
+    montarCard("");
+  }
+}
+function prevPage() {
+  if (pagina >= 2) {
+    pagina--;
+    montarCard("");
+  } else if (pagina == 1 && currentpage > 1) {
+    currentpage--;
+    pagina = 20;
+    montarCard("");
+  }
+}
