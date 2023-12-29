@@ -140,5 +140,6 @@ function prevPage() {
   }
 }
 function buscar() {
+  pagina = 1;
   montarCard();
 }
