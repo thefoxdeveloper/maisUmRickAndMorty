@@ -48,7 +48,7 @@ async function apiDataLoadCards(name, currentpage) {
 }
 let pagina = 1;
 
-async function montarCard() {
+async function montarCard(bloco) {
   console.log("pagina ", pagina);
   console.log("currentPage ", currentpage);
 
@@ -61,32 +61,35 @@ async function montarCard() {
       cards[pagina - 1].episode[cards[pagina - 1].episode.length - 1]
     );
 
-    content.innerHTML = renderizar(cards, episodeName);
+    content.innerHTML = renderizar(cards, episodeName, bloco);
   }
 
-  function renderizar(cards, episodeName) {
-    return `<div class="avatar">
+  function renderizar(cards, episodeName, bloco) {
+    return `<div class="overflow "><div class="avatar animate__animated ${bloco} ">
   <img
     src="${cards[pagina - 1].image}"
     alt=""
   />
   </div>
   <div class="info">
-  <div class="title"><h1>${cards[pagina - 1].name}</h1></div>
-  <div class="stats"><h4> ${status(cards, pagina)} - ${
-      cards[pagina - 1].species
-    }</h4></div>
-  <div class="location">
+  <div class="title animate__animated ${bloco}"><h1>${
+      cards[pagina - 1].name
+    }</h1></div>
+  <div class="stats animate__animated ${bloco}"><h4> ${status(
+      cards,
+      pagina
+    )} - ${cards[pagina - 1].species}</h4></div>
+  <div class="location animate__animated ${bloco}">
     <strong>Última localização conhecida:<br /></strong>
     <span id="lastLoc">${cards[pagina - 1].location.name}</span>
   </div>
-  <div class="episode">
+  <div class="episode animate__animated ${bloco}">
     <strong>Visto a última vez em:<br /></strong>
     <span id="lastEp">${episodeName}</span>
   </div>
   ${devoRender(pagina, cards)}
   </div>
-  </div>`;
+  </div></div>`;
   }
 }
 function devoRender(pagina, cards) {
@@ -129,24 +132,24 @@ function beforeDisable(pagina) {
   <div class="next">  <button onclick="proxPage()" id="next" >Proximo</button></div>
   </div>`;
 }
-montarCard();
+montarCard("animate__fadeIn");
 function proxPage() {
   pagina++;
-  montarCard();
+  montarCard("animate__slideInRight");
   if (pagina > 20) {
     currentpage++;
     pagina = 1;
-    montarCard();
+    montarCard("animate__slideInRight");
   }
 }
 function prevPage() {
   if (pagina >= 2) {
     pagina--;
-    montarCard();
+    montarCard("animate__slideInLeft");
   } else if (pagina == 1 && currentpage > 1) {
     currentpage--;
     pagina = 20;
-    montarCard();
+    montarCard("animate__slideInLeft");
   }
 }
 function buscar() {

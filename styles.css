@@ -9,8 +9,11 @@
   margin: 0;
   padding: 0;
   background-color: var(--yellow-green);
-
+  max-width: 100vw;
   font-family: "Roboto Slab", serif;
+}
+body {
+  width: 100%;
 }
 .container {
   display: flex;
@@ -76,7 +79,6 @@
   width: 70%;
   display: block;
   height: 99%;
-  border: 2px white solid;
 }
 .avatar {
   display: flex;
@@ -119,13 +121,20 @@
 button {
   margin: 5px;
   font-size: 38px;
-  padding: 2px;
+  padding: 10px;
+  border-radius: 20px;
 }
 button:hover {
   background-color: var(--pear);
+}
+button[disabled]:hover {
+  background-color: var(--yellow-green);
 }
 .total {
   display: flex;
   justify-content: space-between;
   margin: 5px 10px;
+}
+.overflow {
+  overflow: hidden;
 }
