@@ -120,12 +120,15 @@ body {
 }
 button {
   margin: 5px;
-  font-size: 38px;
+  font-size: 24px;
   padding: 10px;
   border-radius: 20px;
+  background-color: #2f0d5e;
+  color: white;
 }
 button:hover {
   background-color: var(--pear);
+  color: #2f0d5e;
 }
 button[disabled]:hover {
   background-color: var(--yellow-green);
