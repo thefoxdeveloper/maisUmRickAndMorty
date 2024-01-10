@@ -154,5 +154,6 @@ function prevPage() {
 }
 function buscar() {
   pagina = 1;
+  currentpage = 1
   montarCard();
 }
