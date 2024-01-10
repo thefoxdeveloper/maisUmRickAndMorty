@@ -135,25 +135,25 @@ function beforeDisable(pagina) {
 montarCard("animate__fadeIn");
 function proxPage() {
   pagina++;
-  montarCard("animate__slideInRight");
+  montarCard("animate__bounceInRight");
   if (pagina > 20) {
     currentpage++;
     pagina = 1;
-    montarCard("animate__slideInRight");
+    montarCard("animate__bounceInRight");
   }
 }
 function prevPage() {
   if (pagina >= 2) {
     pagina--;
-    montarCard("animate__slideInLeft");
+    montarCard("animate__bounceInLeft");
   } else if (pagina == 1 && currentpage > 1) {
     currentpage--;
     pagina = 20;
-    montarCard("animate__slideInLeft");
+    montarCard("animate__bounceInLeft");
   }
 }
 function buscar() {
   pagina = 1;
   currentpage = 1
-  montarCard();
+  montarCard("animate__backInUp");
 }
